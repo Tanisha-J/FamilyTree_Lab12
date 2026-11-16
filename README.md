@@ -1,18 +1,51 @@
-## Getting Started
+# CS 46B Lab 12: Family Tree
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Description
 
-## Folder Structure
+This lab creates a family tree using a tree data structure. Each person in the family tree is represented by a `TreeNode`. Every node can have one parent and multiple children.
 
-The workspace contains two folders by default, where:
+The program reads the family tree from a text file, displays the tree, and finds the most recent common ancestor between two people.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## What I Learned
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- How to create and use a tree data structure
+- How to use recursion to search through a tree
+- How to connect parent and child nodes
+- How to read data from a text file
+- How to find the most recent common ancestor of two nodes
+- How to use exceptions to handle invalid input
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Program Structure
 
-## Dependency Management
+### `FamilyTree`
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+The `FamilyTree` class stores the root of the tree and contains the main methods for reading and searching the family tree.
+
+### `TreeNode`
+
+The `TreeNode` class represents one person in the family tree. Each node stores:
+
+- The person's name
+- A reference to the person's parent
+- An `ArrayList` of the person's children
+
+Important methods include:
+
+- `addChild(TreeNode childNode)`  
+  Adds a child to the current node and sets the child's parent.
+
+- `getNodeWithName(String targetName)`  
+  Recursively searches the tree for a person with the given name.
+
+- `collectAncestorsToList()`  
+  Follows the parent references and stores all ancestors in an `ArrayList`.
+
+- `toString()`  
+  Prints the family tree with indentation.
+
+## Input File Format
+
+Each line in the input file must follow this format:
+
+```text
+parent:child1,child2,child3
